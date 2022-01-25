@@ -1,0 +1,1 @@
+{"noise_pct_0": {"interpretability": {"num_rules": {"mean": 3.2, "std": 0.39999999999999997, "std_err": 0.19999999999999998, "raw": [3, 3, 4, 3, 3]}, "num_predicates": {"mean": 16.2, "std": 2.4, "std_err": 1.2, "raw": [15, 15, 21, 15, 15]}}}}

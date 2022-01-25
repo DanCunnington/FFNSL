@@ -1,0 +1,1 @@
+{"noise_pct_0": {"accuracy": {"mean": 1.0, "std": 0.0, "std_err": 0.0, "raw": [1.0, 1.0, 1.0, 1.0, 1.0]}, "brier_score": {"mean": 0.0, "std": 0.0, "std_err": 0.0, "raw": [0.0, 0.0, 0.0, 0.0, 0.0]}}}
