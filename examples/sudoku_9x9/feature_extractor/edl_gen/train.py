@@ -1,3 +1,4 @@
+# Code obtained from https://muratsensoy.github.io/gen.html
 import tensorflow as tf
 import numpy as np
 import pandas as pd
@@ -13,6 +14,7 @@ file_dir = dirname(file_path)
 parent_dir = dirname(file_dir)
 sys.path.append(parent_dir)
 from dataset import load_data
+from pathlib import Path
 
 K = 9  # number of classes
 
@@ -410,7 +412,9 @@ def train():
 
         inputs_dict = {"X": X, "Y": Y}
         outputs_dict = {"prob": prob, "u": u}
-        tf.saved_model.simple_save(sess, 'saved_model', inputs_dict, outputs_dict)
+        save_dir = 'saved_model'
+        Path(save_dir).mkdir(parents=True, exist_ok=True)
+        tf.saved_model.simple_save(sess, save_dir, inputs_dict, outputs_dict)
 
 
 if __name__ == '__main__':

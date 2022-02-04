@@ -1,6 +1,6 @@
 from network import MNISTNet
-from torchsummary import summary
 from dataset import load_data
+from pathlib import Path
 import torch
 import torch.optim as optim
 import torch.nn as nn
@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 
 # Configure save dir
 save_dir = 'saved_model'
+Path(save_dir).mkdir(parents=True, exist_ok=True)
 
 # Configure hyper-parameters
 learning_rate = 1

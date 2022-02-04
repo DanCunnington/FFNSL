@@ -1,21 +1,21 @@
 from dataset import load_data
 from network import PlayingCardNet
-from torchsummary import summary
 import torch
 import torch.optim as optim
 import torch.nn as nn
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 # Configure save dir
 save_dir = 'saved_model'
+Path(save_dir).mkdir(parents=True, exist_ok=True)
 
 # Load dataset
 train_batch_size = 32
 test_batch_size = 32
 train_loader, test_loader = load_data(deck='standard', train_batch_size=train_batch_size,
                                       test_batch_size=test_batch_size)
-
 # Setup hyper-parameters
 n_epochs = 20
 log_interval = 10
@@ -62,7 +62,7 @@ def train(e, log_file):
                 e, batch_idx * len(data), len(train_loader.dataset),
                 100. * batch_idx / len(train_loader), loss.item()))
             train_losses.append(loss.item())
-
+            tc = (batch_idx * len(data)) + ((e - 1) * len(train_loader.dataset))
             train_counter.append(tc)
             torch.save(network.state_dict(), save_dir+'/model.pth')
             torch.save(optimizer.state_dict(), save_dir+'/optimizer.pth')
